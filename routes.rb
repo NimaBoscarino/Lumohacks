@@ -13,9 +13,9 @@ post '/report' do
   request_payload = JSON.parse request.body.read
 
   #a = `Rscript helloworld.r`
-  { :name => request_payload.name,
-    :age => request_payload.age,
-    :ethnicity => request_payload.ethnicity }.to_json
+  { :name => request_payload['name'],
+    :age => request_payload['age'],
+    :ethnicity => request_payload['ethnicity']}.to_json
 end
 
 post '/upload' do
