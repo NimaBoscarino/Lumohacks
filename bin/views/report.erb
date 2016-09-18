@@ -13,7 +13,7 @@
         <div class="container">
             <h1>Results:</h1>
             <h3>Name: <%= name %></h3>
-            <table>
+            <table class="table table-bordered result_table">
                 <tbody>
                 <% results.each do |result| %>
                     <tr>
@@ -51,6 +51,12 @@
         border-style: solid;
         border-width: 5px;
         border-color: white;
+    }
+    
+    .result_table {
+        
+        background-color: white;
+        
     }
 </style>
 
