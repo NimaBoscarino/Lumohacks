@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'CSV'
 
 set :port, 8080
 set :static, true
@@ -20,7 +21,9 @@ post '/upload' do
     end
       
     #result = `Rscript jamesscript.r #{params[:tsv_file][:filename]}`
-    result = `Rscript helloworld.r`
-    result = result + params[:name]
+    `Rscript jamesScript.r uploads/#{params[:tsv_file][:filename].to_s}`
+    results = CSV.read("output.csv")
+    p params[:name]
+    erb :report, :locals => {:name => params[:name], :results => results}
   end
 end
