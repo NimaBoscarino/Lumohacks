@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Cancer Guesser</title>
+        <meta name="description" content="A cancer guesser.">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/main.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="/scripts/tsvToJSON.js"></script>
+    </head>
+    <body>
+        <h1>Our cancer guesser! Team Jamaica :)</h1>
+        <form enctype="multipart/form-data">
+        <label>Name: </label><input type="text" id="name" size="30">
+        <label>Age: </label><input type="number" id="age" size ="30">
+        <label>Ethnicity: </label><input type="text" id="ethnicity" size="30">
+        <label>Please choose your gene expression profile: </label>
+        <input type="file" id="file" name="datafile" size="40">
+        <div>
+        <input class="btn btn-primary" id="getReportButton" value="Get Report">
+        </div>
+        </form>
+    </body>
+</html>
+
+<script "text/javascript">
+    $('h1').css("color", "red");
+    
+    $('#getReportButton').on("click", function(){
+                
+        // submit the form
+        
+        var action = "report";
+        var name = $('#name').val();
+        var age = $('#age').val();
+        var ethnicity = $('#ethnicity').val();
+        
+        console.log("name: " + name);
+        console.log("age: " + age);
+        console.log("ethnicity: " + ethnicity);
+        
+        var data = JSON.stringify({ name : name, age : age, ethnicity : ethnicity });
+        alert("about to make the ajax call");
+        
+        $.ajax({
+            url: action,
+            method: 'POST',
+            contentType: 'application/json',
+            data: data,
+            dataType: 'json',
+            success: function(data){
+                alert(data.name + " " + data.age + " " + data.ethnicity);                
+                $('form').append('<h3>Submitted form successfully</h3');
+            },
+            error: function(e){
+                alert(e);
+            }
+        })
+        
+    })
+    
+</script>
+

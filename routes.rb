@@ -8,10 +8,6 @@ get '/' do
 end
 
 post '/report' do
-  content_type :json
-
-  { :name => params['name'],
-    :age => params['age'],
-    :ethnicity => params['ethnicity']}.to_json
+  params.to_s
 end
 
