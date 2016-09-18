@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="assets/main.css">
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="/scripts/tsvToJSON.js"></script>
     </head>
     <body>
         <h1>Our cancer guesser! Team Jamaica :)</h1>
@@ -29,19 +30,29 @@
     $('h1').css("color", "red");
     
     $('#getReportButton').on("click", function(){
-        var action = "report";
-        var name = $('#name').text();
-        var age = $('#age').val();
-        var ethnicity = $('#ethnicity').text();
-        alert("about to make the ajax call");
+                
+        // submit the form
         
+        var action = "report";
+        var name = $('#name').val();
+        var age = $('#age').val();
+        var ethnicity = $('#ethnicity').val();
+        
+        console.log("name: " + name);
+        console.log("age: " + age);
+        console.log("ethnicity: " + ethnicity);
+        
+        var data = JSON.stringify({ name : name, age : age, ethnicity : ethnicity });
+        alert("about to make the ajax call");
         
         $.ajax({
             url: action,
             method: 'POST',
+            contentType: 'application/json',
+            data: data,
+            dataType: 'json',
             success: function(data){
-                alert(data);
-                alert(data.message);
+                alert(data.name + " " + data.age + " " + data.ethnicity);                
                 $('form').append('<h3>Submitted form successfully</h3');
             },
             error: function(e){
@@ -50,5 +61,6 @@
         })
         
     })
+    
 </script>
 
