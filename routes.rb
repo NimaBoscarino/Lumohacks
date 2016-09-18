@@ -9,8 +9,13 @@ end
 
 post '/report' do
   content_type :json
+  request.body.rewind
+  request_payload = JSON.parse request.body.read
+
   #a = `Rscript helloworld.r`
-  { :message => "sup kayla" }.to_json
+  { :name => request_payload.name,
+    :age => request_payload.age,
+    :ethnicity => request_payload.ethnicity }.to_json
 end
 
 post '/upload' do
