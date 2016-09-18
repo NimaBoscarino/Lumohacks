@@ -1,5 +1,69 @@
-<h1>Upload Image</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Cancer Guesser</title>
+        <meta name="description" content="A cancer guesser.">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
 <form action="/upload" method="post" enctype="multipart/form-data">
-  <input type="file" name="tsv_file">
-  <input type="submit" value="Upload">
+    <div class="container">
+        <div class="row">
+            <h1>Our cancer guesser! Team Jamaica :)</h1>
+            <h3>Upload Gene Expression Profile</h3>
+        </div>
+            <div class="row">
+                <div class="col-md-3"><label>Name: </label></div>
+                <div class="col-md-9"><input type="text" name="name"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><label>Age: </label></div>
+                <div class="col-md-9"><input type="number" name="age"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><label>Ethnicity: </label></div>
+                <div class="col-md-9"><input type="text" name="ethnicity"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><label>Choose file: </label></div>
+                <div class="col-md-9"> <input type="file" name="tsv_file"></div>
+            </div>
+            <div class="row">
+                  <input class="btn btn-primary" type="submit" value="Upload">
+            </div>
+    </div>
+  
 </form>
+    </body>
+</html>
+
+<style>
+    .row {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    body {
+        background-color: white;
+       
+    }
+    
+    .container {
+         background-image: url("http://www.melanomaresearch.com.au/uploads/images/microscope.jpg");
+        padding-top: 70px;
+        padding-bottom: 70px;
+        padding-left: 40px;
+        padding-right: 40px;
+        border-radius: 10px;
+        margin-top: 10%;
+        background-size: 100%;
+    }
+</style>
+
+<script "text/javascript">
+    
+</script>

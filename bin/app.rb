@@ -21,6 +21,6 @@ post '/upload' do
       
     #result = `Rscript jamesscript.r #{params[:tsv_file][:filename]}`
     result = `Rscript helloworld.r`
-
+    result = result + params[:name]
   end
 end
