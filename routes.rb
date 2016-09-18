@@ -9,6 +9,14 @@ end
 
 post '/report' do
   content_type :json
-  a = `ls`
-  { :key1 => a }.to_json
+  #a = `Rscript helloworld.r`
+  { :message => "sup kayla" }.to_json
 end
+
+post '/upload' do
+  File.open('uploads/' + params['myfile'][:filename], "w") do |f|
+        f.write(params['myfile'][:tempfile].read)
+          end
+    return "The file was successfully uploaded!"
+end
+
