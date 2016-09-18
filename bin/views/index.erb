@@ -13,7 +13,7 @@
 <form action="/upload" method="post" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
-            <h1>Our cancer guesser! Team Jamaica :)</h1>
+        
             <h3>Upload Gene Expression Profile</h3>
         </div>
             <div class="row">
@@ -21,15 +21,7 @@
                 <div class="col-md-9"><input type="text" name="name"></div>
             </div>
             <div class="row">
-                <div class="col-md-3"><label>Age: </label></div>
-                <div class="col-md-9"><input type="number" name="age"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-3"><label>Ethnicity: </label></div>
-                <div class="col-md-9"><input type="text" name="ethnicity"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-3"><label>Choose file: </label></div>
+                <div class="col-md-3"><label>Choose file (.tsv): </label></div>
                 <div class="col-md-9"> <input type="file" name="tsv_file"></div>
             </div>
             <div class="row">
@@ -48,7 +40,8 @@
     }
     
     body {
-        background-color: white;
+        background-color: #a3cfef;
+        background-image: url("http://i.imgur.com/s0TEdOH.png")
        
     }
     
@@ -61,6 +54,9 @@
         border-radius: 10px;
         margin-top: 10%;
         background-size: 100%;
+        border-style: solid;
+        border-width: 5px;
+        border-color: white;
     }
 </style>
 
